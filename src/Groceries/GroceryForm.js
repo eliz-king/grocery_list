@@ -1,37 +1,46 @@
 import React, { Component } from 'react';
+import { Form, Button } from 'semantic-ui-react';
 
-class GroceryForm extends Component {
-  state = { name: '' }
+class ContactForm extends Component {
+  state = { firstName: '', phone: '' }
 
   handleSubmit = (e) => {
+    // stop the form from reloading
+    // call a function to add the contact
     e.preventDefault()
-    this.props.addItem(this.state.name)
-    this.setState({name: ''})
+    this.props.add(this.state)
+    this.setState({ firstName: '', phone: '' })
   }
 
   handleChange = (e) => {
-    this.setState({ name: e.target.value })
+    // change the state to user input
+    const {name, value } = e.target
+    this.setState({ [name]: value })
   }
- 
+
   render() {
-    const { name } = this.state
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input 
-          required
-          placeholder="add an item"
-          value={name}
-          name="Items"
+      <Form onSubmit={this.handleChange.handleSubmit}>
+        <Form.Field>
+          <label>First Name</label>
+          <input 
+          placeholder='First Name' 
+          name='firstName'
+          value={this.state.firstName}
           onChange={this.handleChange}
-        />
-        <input 
-          required
-          placeholder="Price of item"
-          value={price}
-          name="Price"
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>Phone</label>
+          <input 
+          placeholder='Phone'
+          value={this.state.phone} 
           onChange={this.handleChange}
-        />
-      </form>
+          />
+        </Form.Field>
+       <Button type='submit'>Submit</Button>
+  </Form>
+
     )
   }
 }
