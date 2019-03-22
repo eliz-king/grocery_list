@@ -16,25 +16,33 @@ class App extends Component {
   }
 
 
+  getUniqId = () => {
+    //NOTE We are just using this as a helper function for id's since we aren't using a db yet
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+   }
+
   addItem = (incomingGroceries) => {
     const { groceries } = this.state
     const grocery = { name: incomingGroceries, id: this.getUniqId() }
-    this.setState({ groceries: [groceries, ...groceries] })
+    this.setState({ groceries: [grocery, ...groceries] })
   }
 
   getUniqId = () => {
     return Math.floor((1+ Math.random()) * 0x10000).toString(16).substring(1)
   }
 
-  todoClick = (id) => {
+  groceriesClick = (id) => {
     const { groceries } = this.state
     this.setState({
-      groceries: groceries.map( groceries => {
-        if (groceries.id === id) {
+      groceries: groceries.map( grocery => {
+        if (grocery.id === id) {
           return {
-            ...groceries,
+            ...grocery,
           }
         }
+        return grocery
       })
     })
   }

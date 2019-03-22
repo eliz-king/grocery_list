@@ -4,7 +4,7 @@ const Groceries = ({ id, itemName, price, groceriesClick }) => (
   <li
     onClick={ () => groceriesClick(id) }
     >
-    { itemName } { price }
+    { itemName } ${ price }
     </li>
 );
 
