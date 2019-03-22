@@ -7,7 +7,7 @@ const List = ({items, name}) => (
     <h2>{name}</h2>
     <ul>
       {
-        items.map(item => <Groceries key={item.id} {...item} todoClick={todoClick}/>)
+        items.map(item => <Groceries key={item.id} {...item} groceriesClick={groceriesClick}/>)
       }
     </ul>
   </div>
