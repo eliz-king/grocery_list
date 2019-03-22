@@ -7,18 +7,19 @@ import GroceryForm from './Groceries/GroceryForm';
 
 class App extends Component {
   state = {
-    todos: [
-      { id: 1, item: 'Learn Rails', complete: true, },
-      { id: 2, name: 'Learn React', complete: false, },
-      { id: 3, name: 'Learn React Router', complete: false, }
+    groceries = [
+      {id: 1, itemName: 'Bananas', price: 1.50},
+      {id: 2, itemName: 'Coffee', price: 4.50},
+      {id: 3, itemName: 'Chicken', price: 10.00},
+      {id: 4, itemName: 'Sugar', price: 2.75 }
     ]
   }
 
 
   addItem = (incomingGroceries) => {
-    const { todos } = this.state
-    const todo = { name: incomingTodo, id: this.getUniqId(), complete: false }
-    this.setState({ todos: [todo, ...todos] })
+    const { groceries } = this.state
+    const groceries = { name: incomingGroceries, id: this.getUniqId(), complete: false }
+    this.setState({ groceries: [groceries, ...groceries] })
   }
 
   getUniqId = () => {
@@ -26,13 +27,13 @@ class App extends Component {
   }
 
   todoClick = (id) => {
-    const { todos } = this.state
+    const { groceries } = this.state
     this.setState({
-      todos: todos.map( todo => {
-        if (todo.id === id) {
+      groceries: groceries.map( groceries => {
+        if (groceries.id === id) {
           return {
-            ...todo,
-            complete: !todo.complete
+            ...groceries,
+            complete: !groceries.complete
           }
         }
       })
@@ -40,11 +41,11 @@ class App extends Component {
   }
 
   render() {
-    const { todos, } = this.state
+    const { groceries, } = this.state
     return (
       <div>
         <TodoForm addItem={this.addItem} />
-        <List name='Todo List' items={todos} todoClick={this.todoClick} />
+        <List name='Grocery List' items={groceries} groceriesClick={this.groceriesClick} />
       </div>
 
     );
