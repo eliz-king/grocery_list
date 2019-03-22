@@ -7,7 +7,7 @@ import GroceryForm from './Groceries/GroceryForm';
 
 class App extends Component {
   state = {
-    groceries = [
+    groceries: [
       {id: 1, itemName: 'Bananas', price: 1.50},
       {id: 2, itemName: 'Coffee', price: 4.50},
       {id: 3, itemName: 'Chicken', price: 10.00},
@@ -18,7 +18,7 @@ class App extends Component {
 
   addItem = (incomingGroceries) => {
     const { groceries } = this.state
-    const groceries = { name: incomingGroceries, id: this.getUniqId(), complete: false }
+    const grocery = { name: incomingGroceries, id: this.getUniqId() }
     this.setState({ groceries: [groceries, ...groceries] })
   }
 
@@ -33,7 +33,6 @@ class App extends Component {
         if (groceries.id === id) {
           return {
             ...groceries,
-            complete: !groceries.complete
           }
         }
       })
@@ -44,7 +43,7 @@ class App extends Component {
     const { groceries, } = this.state
     return (
       <div>
-        <TodoForm addItem={this.addItem} />
+        <GroceryForm addItem={this.addItem} />
         <List name='Grocery List' items={groceries} groceriesClick={this.groceriesClick} />
       </div>
 
