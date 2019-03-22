@@ -24,6 +24,13 @@ class GroceryForm extends Component {
           name="Items"
           onChange={this.handleChange}
         />
+        <input 
+          required
+          placeholder="Price of item"
+          value={price}
+          name="Price"
+          onChange={this.handleChange}
+        />
       </form>
     )
   }
