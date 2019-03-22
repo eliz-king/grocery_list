@@ -40,6 +40,7 @@ class ContactForm extends Component {
         </Form.Field>
        <Button type='submit'>Submit</Button>
   </Form>
+
     )
   }
 }
