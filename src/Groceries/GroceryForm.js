@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
 
-class ContactForm extends Component {
-  state = { firstName: '', phone: '' }
+class GroceryForm extends Component {
+  state = { itemName: '', price: '' }
 
   handleSubmit = (e) => {
     // stop the form from reloading
     // call a function to add the contact
     e.preventDefault()
     this.props.add(this.state)
-    this.setState({ firstName: '', phone: '' })
+    this.setState({ itemName: '', price: '' })
   }
 
   handleChange = (e) => {
@@ -22,19 +22,19 @@ class ContactForm extends Component {
     return(
       <Form onSubmit={this.handleChange.handleSubmit}>
         <Form.Field>
-          <label>First Name</label>
+          <label>Grocery Item</label>
           <input 
-          placeholder='First Name' 
-          name='firstName'
-          value={this.state.firstName}
+          placeholder='item name' 
+          name='itemName'
+          value={this.state.itemName}
           onChange={this.handleChange}
           />
         </Form.Field>
         <Form.Field>
-          <label>Phone</label>
+          <label>Price</label>
           <input 
-          placeholder='Phone'
-          value={this.state.phone} 
+          placeholder='Price'
+          value={this.state.price} 
           onChange={this.handleChange}
           />
         </Form.Field>

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Groceries = ({ id, name, price }) => (
+const Groceries = ({ id, itemName, price }) => (
   <li
     style={ complete ? { ...styles.groceries, ...styles.complete} : styles.groceries }
     onClick={ () => groceriesClick(id) }
     >
-    { name }
+    { itemName } { price }
     </li>
 );
 
