@@ -1,8 +1,7 @@
 import React from 'react';
 
-const Groceries = ({ id, itemName, price }) => (
+const Groceries = ({ id, itemName, price, groceriesClick }) => (
   <li
-    style={ complete ? { ...styles.groceries, ...styles.complete} : styles.groceries }
     onClick={ () => groceriesClick(id) }
     >
     { itemName } { price }
@@ -10,7 +9,7 @@ const Groceries = ({ id, itemName, price }) => (
 );
 
 const styles = {
-  todo: { cursor: 'pointer' },
+  grocery: { cursor: 'pointer' },
   complete: { color: 'grey', textDecoration: 'line-through'},
 };
 

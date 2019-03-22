@@ -2,7 +2,7 @@ import React from 'react';
 import Groceries from './Groceries';
 
 
-const List = ({items, name}) => (
+const List = ({items, name, groceriesClick}) => (
   <div>
     <h2>{name}</h2>
     <ul>
