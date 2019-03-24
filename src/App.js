@@ -24,9 +24,8 @@ class App extends Component {
    }
 
   addItem = (incomingGroceries) => {
-    const { groceries } = this.state
-    const grocery = { name: incomingGroceries, id: this.getUniqId() }
-    this.setState({ groceries: [grocery, ...groceries] })
+    const grocery = { id: this.getUniqId(), ...incomingGroceries }
+    this.setState({ groceries: [grocery, ...this.state.groceries] })
   }
 
   getUniqId = () => {
@@ -51,7 +50,7 @@ class App extends Component {
     const { groceries, } = this.state
     return (
       <div>
-        <GroceryForm addItem={this.addItem} />
+        <GroceryForm add={this.addItem} />
         <List name='Grocery List' items={groceries} groceriesClick={this.groceriesClick} />
       </div>
 
