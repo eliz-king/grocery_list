@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Icon, } from 'semantic-ui-react';
 import List from './Groceries/List';
 import GroceryForm from './Groceries/GroceryForm';
+import Groceries from './Groceries/Groceries';
 
 
 

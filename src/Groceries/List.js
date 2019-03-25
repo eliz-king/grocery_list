@@ -3,7 +3,7 @@ import Groceries from './Groceries';
 import { Button, } from 'semantic-ui-react';
 
 
-const List = ({items, name, groceriesClick}) => (
+const List = ({items, name, groceriesClick, id, remove}) => (
   <div>
     <h2>{name}</h2>
     <ul>
