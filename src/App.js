@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Icon, } from 'semantic-ui-react';
+import { Container, Header, Segment } from 'semantic-ui-react';
 import List from './Groceries/List';
 import GroceryForm from './Groceries/GroceryForm';
-import Groceries from './Groceries/Groceries';
+
 
 
 
@@ -18,11 +18,11 @@ class App extends Component {
 
 
   removeGrocery = (id) => {
-    const groceries = this.state.grocery.filter( grocery => {
+    const groceries = this.state.groceries.filter( grocery => {
       if (grocery.id !== id )
         return grocery
-    })
-    this.setState({ groceries: [...groceries]})
+    });
+    this.setState({ groceries: [...groceries]});
   }
 
   getUniqId = () => {
@@ -54,16 +54,20 @@ class App extends Component {
         return grocery
       })
     })
-  }
+  };
 
   render() {
-    const { groceries, } = this.state
+    const { groceries, } = this.state;
     return (
-      <div>
-        <GroceryForm add={this.addItem} />
-        <List name='Grocery List' items={groceries} groceriesClick={this.groceriesClick} />
-        <Groceries groceries={groceries} remove={this.removeGrocery} />
-      </div>
+      <Container style={{paddingTop: '25px' }}>
+        <Header as='h1'>React Grocery List</Header>
+        <Segment basic>
+          <GroceryForm add={this.addItem} />
+        </Segment>
+        <br />
+        <List name='Grocery List' items={groceries} groceriesClick={this.groceriesClick} remove={this.removeGrocery}  />
+        
+      </Container>
 
     );
   }

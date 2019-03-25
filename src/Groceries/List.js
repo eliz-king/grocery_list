@@ -1,20 +1,27 @@
 import React from 'react';
 import Groceries from './Groceries';
-import { Button, } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 
 
-const List = ({items, name, groceriesClick, id, remove}) => (
-  <div>
-    <h2>{name}</h2>
-    <ul>
+const List = ({items, groceriesClick, remove}) => (
+  <Table celled padded>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell>Item Name</Table.HeaderCell>
+        <Table.HeaderCell>Price</Table.HeaderCell>
+        <Table.HeaderCell>Options</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+    
+    <Table.Body>
       {
-        items.map(item => <Groceries key={item.id} {...item} groceriesClick={groceriesClick}/>)
+        items.map( item => (
+          <Groceries key={item.id} {...item} groceriesClick={groceriesClick} remove={remove} />
+          ))
+          
       }
-    </ul>
-    <Button color='blue' onClick={() => remove(id)}>
-       Delete
-    </Button>
-  </div>
+    </Table.Body>
+    </Table>
 )
 
 
