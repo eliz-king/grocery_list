@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { } from 'semantic-ui-react';
+import { Button, Icon, } from 'semantic-ui-react';
 import List from './Groceries/List';
 import GroceryForm from './Groceries/GroceryForm';
 
@@ -15,6 +15,14 @@ class App extends Component {
     ]
   }
 
+
+  removeGrocery = (id) => {
+    const groceries = this.state.grocery.filter( grocery => {
+      if (grocery.id !== id )
+        return grocery
+    })
+    this.setState({ groceries: [...groceries]})
+  }
 
   getUniqId = () => {
     //NOTE We are just using this as a helper function for id's since we aren't using a db yet
@@ -53,6 +61,7 @@ class App extends Component {
       <div>
         <GroceryForm add={this.addItem} />
         <List name='Grocery List' items={groceries} groceriesClick={this.groceriesClick} />
+        <Groceries groceries={groceries} remove={this.removeGrocery} />
       </div>
 
     );
