@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { } from 'semantic-ui-react'
+import { } from 'semantic-ui-react';
 import List from './Groceries/List';
 import GroceryForm from './Groceries/GroceryForm';
 
@@ -11,7 +11,7 @@ class App extends Component {
       {id: 1, itemName: 'Bananas', price: 1.50},
       {id: 2, itemName: 'Coffee', price: 4.50},
       {id: 3, itemName: 'Chicken', price: 10.00},
-      {id: 4, itemName: 'Sugar', price: 2.75 }
+      {id: 4, itemName: 'Sugar', price: 2.75 },
     ]
   }
 
@@ -39,6 +39,7 @@ class App extends Component {
         if (grocery.id === id) {
           return {
             ...grocery,
+            complete: !grocery.complete
           }
         }
         return grocery
