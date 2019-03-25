@@ -1,5 +1,6 @@
 import React from 'react';
 import Groceries from './Groceries';
+import { Button, } from 'semantic-ui-react';
 
 
 const List = ({items, name, groceriesClick}) => (
@@ -10,6 +11,9 @@ const List = ({items, name, groceriesClick}) => (
         items.map(item => <Groceries key={item.id} {...item} groceriesClick={groceriesClick}/>)
       }
     </ul>
+    <Button color='blue' onClick={() => remove(id)}>
+       Delete
+    </Button>
   </div>
 )
 
